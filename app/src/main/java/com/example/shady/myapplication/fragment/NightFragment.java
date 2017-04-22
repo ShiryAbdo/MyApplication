@@ -4,6 +4,7 @@ package com.example.shady.myapplication.fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -18,6 +19,7 @@ import com.example.shady.myapplication.Interface.UpdateInterface;
 import com.example.shady.myapplication.R;
 import com.example.shady.myapplication.adaptor.DataAdapter_ts;
 import com.example.shady.myapplication.adaptor.Icon_pill_Adaptor;
+import com.example.shady.myapplication.data.HistoryDataHelper;
 import com.example.shady.myapplication.data.MedicInformation;
 import com.example.shady.myapplication.data.UserClass;
 import com.example.shady.myapplication.fireBase.FirebaseHelper;
@@ -47,6 +49,7 @@ public class NightFragment extends Fragment implements UpdateInterface {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        Toast.makeText(getActivity(), String.valueOf(HistoryDataHelper.getInstance().getHistoryList().size()), Toast.LENGTH_SHORT).show();
         //INITIALIZE FIREBASE DB
         db = FirebaseDatabase.getInstance().getReference();
         helper = new FirebaseHelper(db, this, null);
@@ -60,7 +63,7 @@ public class NightFragment extends Fragment implements UpdateInterface {
 
         //////////////////////////////////////////////////////////////////////////////
         RecyclerView rv = (RecyclerView) rootView.findViewById(R.id.rv_drugs_list);
-        adapter= new DataAdapter_ts(getContext(),nigntArray);
+        adapter= new DataAdapter_ts((AppCompatActivity) getActivity(),nigntArray);
 
         rv.setHasFixedSize(true);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
@@ -159,13 +162,21 @@ public class NightFragment extends Fragment implements UpdateInterface {
 
 
                 if (calendar_4.get(Calendar.HOUR_OF_DAY) < 7) {
-                    nigntArray.add(item);
-                    adapter.notifyDataSetChanged();
-
-
-                } else {
-
-
+                    if(!item.isDone()) {
+                        nigntArray.add(item);
+                        adapter.notifyDataSetChanged();
+                    } else {
+                        boolean exists = false;
+                        ArrayList<MedicInformation> history = HistoryDataHelper.getInstance().getHistoryList();
+                        for (MedicInformation info:history){
+                            if (info.get_id().equals(item.get_id())){
+                                exists = true;
+                                break;
+                            }
+                        }
+                        if(!exists)
+                            HistoryDataHelper.getInstance().addToList(item);
+                    }
                 }
 
             }

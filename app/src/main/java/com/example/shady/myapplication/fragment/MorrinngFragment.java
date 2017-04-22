@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -68,7 +69,7 @@ public class MorrinngFragment extends Fragment implements UpdateInterface {
 
        //////////////////////////////////////////////////////////////////////////////
         RecyclerView rv = (RecyclerView) rootView.findViewById(R.id.rv_drugs_list);
-        adapter = new DataAdapter_ts(getContext(),morringArray);
+        adapter = new DataAdapter_ts((AppCompatActivity) getActivity(),morringArray);
 
         rv.setHasFixedSize(true);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());

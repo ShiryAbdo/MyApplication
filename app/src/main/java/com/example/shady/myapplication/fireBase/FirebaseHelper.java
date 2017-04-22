@@ -114,6 +114,7 @@ public class FirebaseHelper {
         medicInformations.clear();
         for (DataSnapshot ds : dataSnapshot.getChildren()) {
             MedicInformation item = ds.getValue(MedicInformation.class);
+            item.set_id(ds.getKey());
             medicInformations.add(item);
         }
     }

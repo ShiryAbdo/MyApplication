@@ -3,6 +3,7 @@ package com.example.shady.myapplication.fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -68,7 +69,7 @@ public class AfternoonFragment extends Fragment implements UpdateInterface {
 
         //////////////////////////////////////////////////////////////////////////////
         RecyclerView rv = (RecyclerView) rootView.findViewById(R.id.rv_drugs_list);
-        adapter= new DataAdapter_ts(getContext(),afternonoArray);
+        adapter= new DataAdapter_ts((AppCompatActivity) getActivity(),afternonoArray);
 
         rv.setHasFixedSize(true);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());

@@ -1,13 +1,14 @@
 package com.example.shady.myapplication.data;
 
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by EL.GAMAL on 3/29/2017.
  */
 
-public class MedicInformation {
+public class MedicInformation implements Serializable{
 
     public String medicName;
     public Integer numberDoses;
@@ -28,9 +29,8 @@ public class MedicInformation {
 //    public long timelong;
     public ArrayList<Long>timelong;
 
-
-
-
+    public boolean done;
+    public String _id;
 
     public MedicInformation(){
 
@@ -60,9 +60,25 @@ public class MedicInformation {
         this.tuesday = tuesday;
     }
 
-
     public ArrayList<Long> getTimelong() {
         return timelong;
+    }
+
+
+    public String get_id() {
+        return _id;
+    }
+
+    public void set_id(String _id) {
+        this._id = _id;
+    }
+
+    public boolean isDone() {
+        return done;
+    }
+
+    public void setDone(boolean done) {
+        this.done = done;
     }
 
     public void setTimelong(ArrayList<Long> timelong) {

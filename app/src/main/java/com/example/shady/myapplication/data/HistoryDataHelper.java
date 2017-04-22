@@ -25,6 +25,8 @@ public class HistoryDataHelper {
 
 
     public ArrayList<MedicInformation> getHistoryList() {
+        if(historyList == null)
+            historyList = new ArrayList<>();
         return historyList;
     }
 

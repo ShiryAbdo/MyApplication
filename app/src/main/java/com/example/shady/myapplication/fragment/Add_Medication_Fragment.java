@@ -69,7 +69,6 @@ public class Add_Medication_Fragment extends Fragment implements BottomSheetTime
     LinearLayout mAlarmLayout;
 
 
-
     Date date ;
     private Uri fileUri;
     SwitchCompat swtAddMedic;
@@ -91,6 +90,12 @@ public class Add_Medication_Fragment extends Fragment implements BottomSheetTime
     ArrayList<Long>timeLongList ;
     private int notification_id;
     ArrayList<MedicInformation> data;
+    MedicInformation item;
+
+
+    public Add_Medication_Fragment(){
+        item = (MedicInformation) getArguments().getSerializable("Med");
+    }
 
 
     @Override

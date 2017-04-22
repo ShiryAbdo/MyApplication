@@ -43,7 +43,11 @@ public class Icon_pill_Adaptor extends RecyclerView.Adapter<Icon_pill_Adaptor.My
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-         holder.imagIcon.setImageResource(R.drawable.show_pill);
+        if(medicInformations.get(position).isDone()){
+            holder.imagIcon.setImageResource(R.drawable.pillicon);
+        } else {
+            holder.imagIcon.setImageResource(R.drawable.show_pill);
+        }
 
     }
 
