@@ -14,19 +14,15 @@ import android.app.TimePickerDialog;
 import android.content.Context;
  import android.content.Intent;
  import android.graphics.Bitmap;
-import android.graphics.Typeface;
-import android.net.Uri;
+  import android.net.Uri;
  import android.os.Bundle;
  import android.os.Environment;
  import android.provider.MediaStore;
  import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.SwitchCompat;
+ import android.support.v4.app.Fragment;
+ import android.support.v7.widget.SwitchCompat;
  import android.text.TextUtils;
-import android.text.format.DateFormat;
-import android.util.Log;
+ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,13 +32,11 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.TextView;
+ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import com.example.shady.myapplication.adaptor.AdapterListAlarm;
-import com.example.shady.myapplication.fireBase.FirebaseHelper;
+ import com.example.shady.myapplication.fireBase.FirebaseHelper;
 import com.example.shady.myapplication.data.MedicInformation;
 import com.example.shady.myapplication.R;
 import com.example.shady.myapplication.Interface.UpdateInterface;
@@ -70,14 +64,17 @@ public class Add_Medication_Fragment extends Fragment implements BottomSheetTime
 
 
     TextView  textStartDate, textEndDate;
-    private int tpRequestCode ;
+    private int tpRequestCode =8;
     ArrayList<TextView> multiAlarm ;
     LinearLayout mAlarmLayout;
+
+
+
     Date date ;
     private Uri fileUri;
     SwitchCompat swtAddMedic;
-
-    ImageView imgPreview  , imgAddAlarm;
+    Button btnSave;
+    ImageView imgPreview;
     EditText editMedicName;
     TextView textSchedul, textTimePicker;
     CheckBox cbSat, cbSun, cbMon, cbTue, cbWed, cbThu, cbFri;
@@ -94,18 +91,12 @@ public class Add_Medication_Fragment extends Fragment implements BottomSheetTime
     ArrayList<Long>timeLongList ;
     private int notification_id;
     ArrayList<MedicInformation> data;
-    ListView listAlarm;
-    ArrayList<String> arrAlarm;
-    AdapterListAlarm adptAlarm ;
-    FloatingActionButton btnSave;
-    String timeAlarm;
-
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout. fragment_add_medication_milad, container, false);
-        db = FirebaseDatabase.getInstance().getReference();
+        View view = inflater.inflate(R.layout.fragment_add_medication, container, false);
+         db = FirebaseDatabase.getInstance().getReference();
         helper = new FirebaseHelper(db, this, null);
         mStorageRef = FirebaseStorage.getInstance().getReference();
         mProgress = new ProgressDialog(getActivity());
@@ -113,20 +104,11 @@ public class Add_Medication_Fragment extends Fragment implements BottomSheetTime
         multiAlarm = new ArrayList<>();
         notification_id = (int) System.currentTimeMillis();
         data = helper.retrieve();
-        ///
-        imgAddAlarm = (ImageView) view.findViewById(R.id.add_alarm);
-        listAlarm = (ListView) view.findViewById(R.id.list_alarm);
-        arrAlarm = new ArrayList<>();
-        adptAlarm = new AdapterListAlarm(getActivity(),arrAlarm);
-        listAlarm.setAdapter(adptAlarm);
-        timeAlarm=new String();
-
-
 
         mAlarmLayout = (LinearLayout) view.findViewById(R.id.alarm_repeater);
         swtAddMedic = (SwitchCompat) view.findViewById(R.id.switch_add_medic);
         imgPreview = (ImageView) view.findViewById(R.id.img_view);
-        btnSave = (FloatingActionButton) view.findViewById(R.id.btn_save);
+        btnSave = (Button) view.findViewById(R.id.btn_save);
         textSchedul = (TextView) view.findViewById(R.id.text_reminder_time);
         editMedicName = (EditText) view.findViewById(R.id.medicineEdtTxt);
         textTimePicker = (TextView) view.findViewById(R.id.time_Picker);
@@ -140,7 +122,7 @@ public class Add_Medication_Fragment extends Fragment implements BottomSheetTime
         cbThu = (CheckBox) view.findViewById(R.id.checkbox_thu);
         cbFri = (CheckBox) view.findViewById(R.id.checkbox_fri);
         numberPicker = (com.shawnlin.numberpicker.NumberPicker) view.findViewById(R.id.number_picker);
-        imgAddAlarm.setEnabled(false);
+        textTimePicker.setEnabled(false);
         numberPicker.setEnabled(false);
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -165,7 +147,7 @@ public class Add_Medication_Fragment extends Fragment implements BottomSheetTime
 
 /////////////////////////////////////////////////////////////////////////////////////////
 
-        imgAddAlarm.setOnClickListener(new View.OnClickListener()
+        textTimePicker.setOnClickListener(new View.OnClickListener()
 
                                           {
                                               @Override
@@ -184,16 +166,10 @@ public class Add_Medication_Fragment extends Fragment implements BottomSheetTime
                                                           c.set(Calendar.HOUR_OF_DAY,hour);
                                                           c.set(Calendar.MINUTE,min);
                                                           date= c.getTime();
-                                                           timeAlarm = timeFormat.format(date);
+                                                           String strDate = timeFormat.format(date);
                                                           dateTime = date.getTime();
-                                                          arrAlarm.add(timeAlarm);
-                                                          adptAlarm.notifyDataSetChanged();
-                                                          listAlarm.setVisibility(View.VISIBLE);
-                                                          listAlarm.invalidate();
 
-
-//                                                          textTimePicker.setText(timeAlarm);
-
+                                                          textTimePicker.setText(strDate);
 
 
                                                       }
@@ -262,14 +238,14 @@ public class Add_Medication_Fragment extends Fragment implements BottomSheetTime
 
                 if (isChecked) {
 
-                    imgAddAlarm.setEnabled(true);
+                    textTimePicker.setEnabled(true);
                     numberPicker.setEnabled(true);
 
 
                     showTextNotification("SWITCH ON *****");
                 } else {
 
-                    imgAddAlarm.setEnabled(false);
+                    textTimePicker.setEnabled(false);
                     numberPicker.setEnabled(false);
                     showTextNotification("SWITCH OFF *****");
 
@@ -290,7 +266,8 @@ public class Add_Medication_Fragment extends Fragment implements BottomSheetTime
                                                  if (isChecked) {
                                                      if (buttonView == cbSat) {
                                                          numberPicker.getValue();
-                                                          showTextNotification("Sat");
+                                                         textTimePicker.getText();
+                                                         showTextNotification("Sat");
 
                                                      }
                                                  }
@@ -413,28 +390,6 @@ public class Add_Medication_Fragment extends Fragment implements BottomSheetTime
         );
 
 
-
-        // set formatter
-        numberPicker.setFormatter(getString(R.string.number_picker_formatter));
-        numberPicker.setFormatter(R.string.number_picker_formatter);
-//
-//        // set text color
-        numberPicker.setTextColor(ContextCompat.getColor(getActivity(), R.color.blue_dark));
-        numberPicker.setTextColorResource(R.color.blue_dark);
-//
-//        // set text size
-        numberPicker.setTextSize(getResources().getDimension(R.dimen.text_size));
-        numberPicker.setTextSize(R.dimen.text_size);
-//
-//        // set typeface
-        numberPicker.setTypeface(Typeface.create(getString(R.string.roboto_light), Typeface.BOLD));
-        numberPicker.setTypeface(getString(R.string.roboto_light), Typeface.BOLD);
-        numberPicker.setTypeface(getString(R.string.roboto_light));
-        numberPicker.setTypeface(R.string.roboto_light, Typeface.BOLD);
-        numberPicker.setTypeface(R.string.roboto_light);
-
-
-
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         btnSave.setOnClickListener(new View.OnClickListener() {
@@ -445,7 +400,7 @@ public class Add_Medication_Fragment extends Fragment implements BottomSheetTime
                 String medicName = editMedicName.getText().toString().trim();
                 medicInformation.setMedicName(medicName);
 
-                String medicTime = timeAlarm;
+                String medicTime = textTimePicker.getText().toString();
                 timeLongList.add(dateTime);
                 medicInformation.setTimelong(timeLongList);
 //        String medicTime = textTimePicker.getText().toString().trim();
@@ -493,12 +448,7 @@ public class Add_Medication_Fragment extends Fragment implements BottomSheetTime
                         medicInformation.getFriday()
                 };
 
-                if(arrAlarm != null && arrAlarm.size() != 0)
-                    try {
-                        setAlarm(medicName, arrAlarm, days);
-                    } catch (ParseException e) {
-                        e.printStackTrace();
-                    }
+                setAlarm(medicName, hour, min, days);
 
 //                calendar.set(date.getYear(),
 //                        date.getMonth(),
@@ -532,7 +482,7 @@ public class Add_Medication_Fragment extends Fragment implements BottomSheetTime
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
+                 intent.putExtra(MediaStore.EXTRA_OUTPUT, fileUri);
                 intent.putExtra(MediaStore.EXTRA_VIDEO_QUALITY, 1);
                 startActivityForResult(intent, 0);
             }
@@ -541,7 +491,7 @@ public class Add_Medication_Fragment extends Fragment implements BottomSheetTime
         return view;
     }
 
-    private void setAlarm (String medicName, ArrayList<String> alarms , boolean[] days) throws ParseException {
+    private void setAlarm (String medicName, int hour, int min , boolean[] days){
         int[] weekDays = new int[]{
                 Calendar.SATURDAY,
                 Calendar.SUNDAY,
@@ -553,37 +503,34 @@ public class Add_Medication_Fragment extends Fragment implements BottomSheetTime
         };
         for(int i = 0; i < days.length; i++) {
             if(days[i]) {
-                for (String alarm : alarms) {
-                    Calendar calendar = Calendar.getInstance();
-                    calendar.setFirstDayOfWeek(Calendar.SATURDAY);
-                    calendar.setTime(new Date());
+                Calendar calendar = Calendar.getInstance();
+                calendar.setFirstDayOfWeek(Calendar.SATURDAY);
+                calendar.setTime(new Date());
 
-                    if (hour < calendar.get(Calendar.HOUR)) {
-                        calendar.add(Calendar.DAY_OF_WEEK, 1);
-                    }
-
-                    while (calendar.get(Calendar.DAY_OF_WEEK) != weekDays[i]) {
-                        calendar.add(Calendar.DATE, 1);
-                    }
-                    Date time = new SimpleDateFormat("hh':'mm a", Locale.getDefault()).parse(alarm);
-                    calendar.set(Calendar.HOUR_OF_DAY, time.getHours());
-                    calendar.set(Calendar.MINUTE, time.getMinutes());
-                    Intent intent1 = new Intent(getContext(), MyReceiver.class);
-                    intent1.putExtra("name_of_medecines", medicName);
-                    intent1.putExtra("Hour_time", time.getHours());
-                    intent1.putExtra("Mint_time", time.getMinutes());
-                    PendingIntent pendingIntent = PendingIntent.getBroadcast(
-                            getContext(), notification_id + i + time.getHours() + time.getMinutes(), intent1,
-                            PendingIntent.FLAG_UPDATE_CURRENT);
-                    AlarmManager am = (AlarmManager) getContext()
-                            .getSystemService(Context.ALARM_SERVICE);
-
-                    String s = calendar.getTime().toString();
-                    Log.d("RemTime", s);
-
-                    am.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
-                            AlarmManager.INTERVAL_DAY, pendingIntent);
+                if (hour < calendar.get(Calendar.HOUR)){
+                    calendar.add(Calendar.DAY_OF_WEEK, 1);
                 }
+
+                while (calendar.get(Calendar.DAY_OF_WEEK) != weekDays[i]) {
+                    calendar.add(Calendar.DATE, 1);
+                }
+                calendar.set(Calendar.HOUR_OF_DAY, hour);
+                calendar.set(Calendar.MINUTE, min);
+                Intent intent1 = new Intent(getContext(), MyReceiver.class);
+                intent1.putExtra("name_of_medecines",medicName);
+                intent1.putExtra("Hour_time",hour);
+                intent1.putExtra("Mint_time",min);
+                PendingIntent pendingIntent = PendingIntent.getBroadcast(
+                        getContext(), notification_id+i, intent1,
+                        PendingIntent.FLAG_UPDATE_CURRENT);
+                AlarmManager am = (AlarmManager) getContext()
+                        .getSystemService(Context.ALARM_SERVICE);
+
+                String s = calendar.getTime().toString();
+                Log.d("RemTime", s);
+
+                am.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
+                        AlarmManager.INTERVAL_DAY, pendingIntent);
             }
         }
     }
@@ -596,13 +543,13 @@ public class Add_Medication_Fragment extends Fragment implements BottomSheetTime
         if (requestCode == 0) {
             switch (resultCode) {
                 case Activity.RESULT_OK:
-                    imgPreview.setVisibility(View.VISIBLE);
+                     imgPreview.setVisibility(View.VISIBLE);
                     bm = data.getExtras().getParcelable("data");
                     imgPreview.setImageBitmap(bm);
                     if (bm != null) {
                         ByteArrayOutputStream baos = new ByteArrayOutputStream();
                         bm.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-                        mStorageRef.child("Medicine/test.jpg").putBytes(baos.toByteArray()).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                         mStorageRef.child("Medicine/test.jpg").putBytes(baos.toByteArray()).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                             @Override
                             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                                 Toast.makeText(getActivity(), "Uploaded", Toast.LENGTH_SHORT).show();
@@ -634,6 +581,13 @@ public class Add_Medication_Fragment extends Fragment implements BottomSheetTime
     }
 
 
+    private void toggleButton() {
+        if (TextUtils.isEmpty(medicId)) {
+            btnSave.setText("Save");
+        } else {
+            btnSave.setText("Update");
+        }
+    }
 
 
     private void updateMedicine(String medicName, Integer numberDoses, String medicTime, ArrayList<Long> timelong,  String medicStartDate, String medicEndDate ,Boolean saturday, Boolean sunday, Boolean monday, Boolean tuesday, Boolean wednesday, Boolean thursday, Boolean friday) {

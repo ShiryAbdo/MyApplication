@@ -15,7 +15,7 @@ public class HistoryDataHelper {
     private HistoryDataHelper() {
     }
 
-    ;
+
 
     public static HistoryDataHelper getInstance() {
         if (instance == null)

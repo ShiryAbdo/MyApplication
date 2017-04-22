@@ -162,8 +162,6 @@ public class EveningFragment extends Fragment implements UpdateInterface {
                    adapter.notifyDataSetChanged();
 
 
-                } else {
-
                 }
 
             }

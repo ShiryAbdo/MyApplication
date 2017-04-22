@@ -43,7 +43,7 @@ public class MyReceiver extends BroadcastReceiver {
         NotificationCompat.Builder mNotifyBuilder = new NotificationCompat.Builder(
                 context).setSmallIcon(R.drawable.show_pill)
                 .setContentTitle(medName)
-                .setContentText(medHour + ":" + medMin)
+                .setContentText("Time to take your medicine       "+medHour + ":" + medMin)
                 .setSound(alarmSound)
                 .setAutoCancel(true).setWhen(when)
                 .setContentIntent(pendingIntent)

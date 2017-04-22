@@ -62,8 +62,6 @@ public class MorrinngFragment extends Fragment implements UpdateInterface {
         data = helper.retrieve();
         idKey= helper.getAddedItemsKeysList();
 
-
-
          // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.morring_fragment, container, false);
         Context context ;

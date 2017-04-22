@@ -60,7 +60,6 @@ public class DrugsActivity extends AppCompatActivity  implements OnMenuItemClick
         // Get the ViewPager and set it's PagerAdapter so that it can display items
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         PagerAdapter pagerAdapter =
-
                 new PagerAdapter(getSupportFragmentManager(), DrugsActivity.this);
         viewPager.setAdapter(pagerAdapter);
 

@@ -36,7 +36,7 @@ import java.util.ArrayList;
 
 
 public class EditFragment extends Fragment implements UpdateInterface {
-    //    Firebase
+//    Firebase
     FirebaseAuth firebaseAuth ;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private DatabaseReference mDatabase;
@@ -49,10 +49,11 @@ public class EditFragment extends Fragment implements UpdateInterface {
     private FirebaseAuth.AuthStateListener authListener;
     private FirebaseAuth auth;
 
-     @Nullable
+//    @RequiresApi(api = Build.VERSION_CODES.M)
+    @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_edit, container, false);
+         View rootView = inflater.inflate(R.layout.fragment_edit, container, false);
 
 
 
@@ -83,7 +84,7 @@ public class EditFragment extends Fragment implements UpdateInterface {
                     String email = userClass.getEmail();
                     et_userName.setText(name);
                     et_email.setText(email);
-                }
+                 }
 
                 @Override
                 public void onCancelled(DatabaseError databaseError) {
@@ -93,7 +94,7 @@ public class EditFragment extends Fragment implements UpdateInterface {
                 }
             });
         }catch (Exception e){
-            Toast.makeText(getContext(), "Selected: " +  "Failed to read value.", Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), "Selected: " +  "Failed to read value.", Toast.LENGTH_LONG).show();
 
         }
 

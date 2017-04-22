@@ -56,6 +56,12 @@ public class DataAdapter_ts extends RecyclerView.Adapter<DataAdapter_ts.MyViewHo
         MedicInformation data = medicInformations.get(position);
         holder.nameofmedecin.setText(data.getMedicName());
         holder.timeOfmedecin.setText("Doses" + data.getNumberDoses());
+        holder.edite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 //        Date x = new Date(data.getTimelong());
 //        Calendar calendar_4 = Calendar.getInstance();
 //        holder.timeOfmedecin.setText();
