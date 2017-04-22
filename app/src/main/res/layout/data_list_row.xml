@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    android:clickable="true"
+    android:background="#ffff"
+    android:weightSum="2"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView"
+        android:textColor="#000"
+        android:textSize="12sp"
+        android:layout_margin="5dp"
+
+        />
+
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+         android:layout_weight="1"
+        >
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+             android:weightSum="2"
+            >
+            <!--/the frist table in th frist lay out -->
+            <TableRow
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                >
+
+
+                <LinearLayout
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                     android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="3dp"
+                    android:clickable="true"
+                    android:id="@+id/morring_liner"
+                    android:background="@drawable/border"
+                    android:focusable="true"
+
+                     >
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                         android:weightSum="2"
+                        android:layout_margin="5dp"
+                        >
+
+                        <TableRow
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            >
+
+                            <LinearLayout
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:weightSum="4"
+                                >
+                                <ImageView
+                                    android:layout_margin="10dp"
+                                    android:id="@+id/morring_icon"
+                                    android:padding="5dp"
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="match_parent"
+                                    android:contentDescription="@string/action_settings"
+                                    android:src="@drawable/sun_mo"
+                                    android:scaleType="centerCrop" />
+
+                                <TextView
+
+                                    android:id="@+id/dura_name2"
+                                    android:layout_width="0dp"
+                                    android:layout_weight="3"
+                                    android:layout_height="match_parent"
+                                    android:textSize="12sp"
+                                    android:text="Mornning"
+                                    android:textColor="#026d87"
+                                    android:gravity="center"
+
+
+                                    android:textAllCaps="false" />
+                            </LinearLayout>
+                        </TableRow>
+
+
+
+
+                                <android.support.v7.widget.RecyclerView
+                                    android:id="@+id/recycler_view_morring"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:scrollbars="vertical" />
+                                <!--&gt;-->
+
+
+
+    <!--END/////////////////////////////////////////////////////////////-->
+
+                    </LinearLayout>
+                </LinearLayout>
+                            </TableRow>
+
+
+
+            <TableRow
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                >
+                <LinearLayout
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:layout_margin="3dp"
+                    android:id="@+id/after_noon_lanier"
+                    android:background="@drawable/border"
+                    android:focusable="true"
+
+                     >
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:weightSum="2"
+                    android:layout_margin="5dp"
+                    >
+
+                    <TableRow
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        >
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:weightSum="4"
+                            >
+                            <ImageView
+                                android:layout_margin="10dp"
+                                android:id="@+id/after_icon"
+                                android:padding="5dp"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent"
+                                android:contentDescription="@string/action_settings"
+                                android:src="@drawable/sun_after"
+                                android:scaleType="centerCrop" />
+
+                            <TextView
+
+                                android:id="@+id/duration_name2"
+                                android:layout_width="0dp"
+                                android:layout_weight="3"
+                                android:layout_height="match_parent"
+                                android:textSize="12sp"
+                                android:text="Afternoon"
+                                android:textColor="#026d87"
+                                android:gravity="center"
+
+
+                                android:textAllCaps="false" />
+                        </LinearLayout>
+                    </TableRow>
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        >
+
+                        <LinearLayout
+                            xmlns:android="http://schemas.android.com/apk/res/android"
+                            xmlns:app="http://schemas.android.com/apk/res-auto"
+                            android:id="@+id/cardView_afternoon"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                             android:clickable="true"
+                             android:focusable="true"
+                            android:orientation="vertical">
+                            <android.support.v7.widget.RecyclerView
+                                android:id="@+id/recycler_view_afternoon"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:scrollbars="vertical" />
+
+
+                        </LinearLayout>
+
+
+                    </TableRow>
+                </LinearLayout>
+                </LinearLayout>
+            </TableRow>
+
+        </LinearLayout>
+
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        >
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="2"
+            >
+            <!--/the frist table in th frist lay out -->
+            <TableRow
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                >
+
+
+                <LinearLayout
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:layout_margin="3dp"
+                    android:id="@+id/eveninig_lay_liner"
+                    android:background="@drawable/border"
+                    android:focusable="true"
+                    >
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                         android:weightSum="2"
+                        android:layout_margin="5dp"
+                        >
+
+                        <TableRow
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            >
+
+                            <LinearLayout
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                 android:weightSum="4"
+                                >
+                                <ImageView
+                                    android:layout_margin="10dp"
+                                    android:id="@+id/evning_icon"
+                                    android:padding="5dp"
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="match_parent"
+                                    android:contentDescription="@string/action_settings"
+                                    android:src="@drawable/sunset"
+                                    android:scaleType="centerCrop" />
+
+                                <TextView
+
+                                    android:id="@+id/dura_name3"
+                                    android:layout_width="0dp"
+                                    android:layout_weight="3"
+                                    android:layout_height="match_parent"
+                                    android:textSize="12sp"
+                                    android:text="Evening"
+                                    android:textColor="#026d87"
+                                    android:gravity="center"
+                                    android:textAllCaps="false" />
+                            </LinearLayout>
+                        </TableRow>
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            >
+
+                            <LinearLayout
+
+                                android:id="@+id/cardView_Evening"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:clickable="true"
+                                android:focusable="true"
+
+                                android:orientation="vertical">
+                                <android.support.v7.widget.RecyclerView
+                                    android:id="@+id/recycler_view_eveninig"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:scrollbars="vertical" />
+
+                            </LinearLayout>
+
+
+                        </TableRow>
+                    </LinearLayout>
+                </LinearLayout>
+            </TableRow>
+
+
+
+            <TableRow
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                >
+                <LinearLayout
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:layout_margin="3dp"
+                    android:id="@+id/night_lay_lin"
+                    android:background="@drawable/border"
+                    android:focusable="true"
+                    >
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:weightSum="2"
+                        android:layout_margin="5dp"
+                        >
+
+                        <TableRow
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            >
+
+                            <LinearLayout
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:weightSum="4"
+                                >
+                                <ImageView
+                                    android:layout_margin="10dp"
+                                    android:id="@+id/night_icon"
+                                    android:padding="5dp"
+                                    android:layout_width="0dp"
+                                    android:layout_weight="1"
+                                    android:layout_height="match_parent"
+                                    android:contentDescription="@string/action_settings"
+                                    android:src="@drawable/moon"
+                                    android:scaleType="centerCrop" />
+
+                                <TextView
+
+                                    android:id="@+id/duratio_name2"
+                                    android:layout_width="0dp"
+                                    android:layout_weight="3"
+                                    android:layout_height="match_parent"
+                                    android:textSize="12sp"
+                                    android:text=" Night"
+                                    android:textColor="#026d87"
+                                    android:gravity="center"
+
+
+                                    android:textAllCaps="false" />
+                            </LinearLayout>
+                        </TableRow>
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            >
+
+                            <LinearLayout
+                                xmlns:android="http://schemas.android.com/apk/res/android"
+                                android:id="@+id/cardView_night"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:orientation="vertical"
+                                >
+                                <android.support.v7.widget.RecyclerView
+                                    android:id="@+id/recycler_view_night"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:scrollbars="vertical" />
+
+
+                            </LinearLayout>
+
+
+                        </TableRow>
+                    </LinearLayout>
+                </LinearLayout>
+
+
+            </TableRow>
+
+
+        </LinearLayout>
+
+
+    </TableRow>
+
+</LinearLayout>

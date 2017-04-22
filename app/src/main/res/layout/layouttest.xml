@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f9a4f2"
+    android:weightSum="2"
+    >
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#fcfafc"
+
+        >
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="4"
+            >
+            <ImageView
+                android:layout_margin="10dp"
+                android:id="@+id/sun_icon"
+                android:padding="5dp"
+                 android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/action_settings"
+                android:src="@drawable/cloud"
+                android:scaleType="centerCrop" />
+
+            <TextView
+
+                android:id="@+id/duration_name"
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="match_parent"
+                android:textSize="20sp"
+                android:text="Morring"
+                android:textColor="#f40909"
+                android:gravity="center"
+
+                android:padding="10dp"
+                android:textStyle="bold|italic"
+                android:textAllCaps="true" />
+        </LinearLayout>
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        >
+
+        <android.support.v7.widget.CardView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/cardView_sun"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:clickable="true"
+            android:background="#ccc9c9"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="@dimen/activity_vertical_margin">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <!--/that will be add to lay out -->
+            <TableRow
+                android:layout_margin="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#e4aeae"
+                android:id="@+id/row_icon_with_name"
+                >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_gravity="center"
+                     android:id="@+id/pill_icon"
+                     android:padding="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/action_settings"
+                    android:src="@drawable/pillicon"
+                    android:scaleType="centerCrop" />
+
+                <TextView
+                    android:id="@+id/country_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:text="time medecin"
+                    android:textColor="#f40909"
+                    android:gravity="center"
+                    android:layout_below="@+id/pill_icon"
+                     android:padding="8dp"
+                    />
+
+            </RelativeLayout>
+            </TableRow>
+
+
+
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#e4aeae"
+                    android:id="@+id/row_icon_with_name3"
+                    android:layout_alignTop="@+id/row_icon_with_name"
+                    android:layout_toRightOf="@+id/row_icon_with_name"
+                    android:layout_toEndOf="@+id/row_icon_with_name">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_gravity="center"
+                            android:id="@+id/pill_icon3"
+                            android:padding="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="@string/action_settings"
+                            android:src="@drawable/pillicon"
+                            android:scaleType="centerCrop" />
+
+                        <TextView
+                            android:id="@+id/country_name3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="13sp"
+                            android:text="time medecin"
+                            android:textColor="#f40909"
+                            android:gravity="center"
+                            android:layout_below="@+id/pill_icon3"
+                            android:padding="8dp"
+                            />
+
+                    </RelativeLayout>
+                </TableRow>
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="#e4aeae"
+                    android:id="@+id/row_icon_with_name5"
+                    android:layout_below="@+id/row_icon_with_name"
+                    >
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_gravity="center"
+                            android:id="@+id/pill_icon5"
+                            android:padding="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="@string/action_settings"
+                            android:src="@drawable/pillicon"
+                            android:scaleType="centerCrop" />
+
+                        <TextView
+                            android:id="@+id/country_name5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="13sp"
+                            android:text="time medecin"
+                            android:textColor="#f40909"
+                            android:gravity="center"
+                            android:layout_below="@+id/pill_icon5"
+                            android:padding="8dp"
+                            />
+
+                    </RelativeLayout>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#e4aeae"
+                    android:id="@+id/row_icon_with_name6"
+                    android:layout_alignTop="@+id/row_icon_with_name5"
+                    android:layout_toRightOf="@+id/row_icon_with_name5"
+                    android:layout_toEndOf="@+id/row_icon_with_name5">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_gravity="center"
+                            android:id="@+id/pill_icon6"
+                            android:padding="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="@string/action_settings"
+                            android:src="@drawable/pillicon"
+                            android:scaleType="centerCrop" />
+
+                        <TextView
+                            android:id="@+id/country_name6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="13sp"
+                            android:text="time medecin"
+                            android:textColor="#f40909"
+                            android:gravity="center"
+                            android:layout_below="@+id/pill_icon6"
+                            android:padding="8dp"
+                            />
+
+                    </RelativeLayout>
+                </TableRow>
+
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
+    </TableRow>
+</LinearLayout>

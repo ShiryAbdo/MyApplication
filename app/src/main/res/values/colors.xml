@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#ffffff</color>
+    <color name="colorPrimaryDark">#ffffff</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colortext">#444a59</color>
+    <color name="colorbg">#ffffff</color>
+    <color name="btcolorbg">#C5C7CC</color>
+    <color name="background_line">#444a59</color>
+    <color name="splash_bg">#F8F6EC</color>
+    <color name="orange">#FF9600</color>
+    <color name="aqua">#02D1AC</color>
+    <color name="yellow">#FFD200</color>
+    <color name="blue">#00C6FF</color>
+    <color name="green">#00E099</color>
+    <color name="pink">#FF3892</color>
+    <color name="textFont">#2C3646</color>
+    <color name="color_cardView">#129793</color>
+    <color name="color_background">#9BD7D5</color>
+
+
+    <color name="number">#FF4081</color>
+
+
+    <color name="textPrimary">#212121</color>
+    <color name="textSecondary">#727272</color>
+    <color name="white">#fff</color>
+    <color name="background">#dae2e2e2</color>
+
+    <color name="gray">#fcf7f7</color>
+    <color name="gray_line">#CCC</color>
+    <color name="black">#fdfdfd</color>
+
+    <color name="backgroud_user">#ffffff</color>
+
+    <color name="transparent">#00000000</color>
+
+    <!-- Status para as lista -->
+    <color name="navigation_view">#DADADC</color>
+    <color name="navigation_items">#ffffff</color>
+    <color name="gray_navegation">#ffffff</color>
+
+    <color name="blue_light">#33b5e5</color>
+    <color name="purple_light">#AA66CC</color>
+    <color name="green_light">#99CC00</color>
+    <color name="orange_light">#FFBB33</color>
+    <color name="red_light">#FF4444</color>
+
+    <color name="blue_dark">#0099CC</color>
+    <color name="purple_dark">#9933CC</color>
+    <color name="green_dark">#669900</color>
+    <color name="orange_dark">#FF8800</color>
+    <color name="red_dark">#CC0000</color>
+
+    <color name="green_google_play">#96AA39</color>
+
+    <color name="background_tab_pressed">#6633B5E5</color>
+
+
+    <color name="text_color">#222222</color>
+
+    <array name="splash_circle_colors">
+        <item>@color/green</item>
+        <item>@color/pink</item>
+        <item>@color/orange</item>
+        <item>@color/aqua</item>
+        <item>@color/yellow</item>
+        <item>@color/blue</item>
+
+    </array>
+
+
+</resources>

@@ -1,0 +1,33 @@
+ <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/activity_photo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:baselineAligned="false"
+        tools:context="com.example.shady.myapplication.activities.PhotoActivity">
+
+
+    <Button
+        android:id="@+id/btn_photo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/take_photo"
+        android:gravity="center"
+        android:layout_margin="30dp"
+        android:textSize="20sp"
+        android:textColor="@color/aqua"
+        android:typeface="monospace"
+        android:onClick="process"
+        android:backgroundTint="@color/white"
+        />
+
+     <ImageView
+         android:id="@+id/imgPreview"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:visibility="visible"
+         android:background="@color/aqua"/>
+
+</LinearLayout>
+
