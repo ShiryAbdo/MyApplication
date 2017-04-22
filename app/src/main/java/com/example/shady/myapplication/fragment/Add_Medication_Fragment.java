@@ -93,14 +93,11 @@ public class Add_Medication_Fragment extends Fragment implements BottomSheetTime
     MedicInformation item;
 
 
-    public Add_Medication_Fragment(){
-        item = (MedicInformation) getArguments().getSerializable("Med");
-    }
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_add_medication, container, false);
+        if(getArguments() != null)
+            item = (MedicInformation) getArguments().getSerializable("Med");
          db = FirebaseDatabase.getInstance().getReference();
         helper = new FirebaseHelper(db, this, null);
         mStorageRef = FirebaseStorage.getInstance().getReference();

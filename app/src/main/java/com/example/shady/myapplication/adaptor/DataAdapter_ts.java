@@ -76,6 +76,7 @@ public class DataAdapter_ts extends RecyclerView.Adapter<DataAdapter_ts.MyViewHo
                 c.getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.container, f)
+                        .addToBackStack(null)
                         .commit();
             }
         });
